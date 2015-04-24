@@ -5,31 +5,71 @@
 		"classes": {
 			"TbForn": {
 				"panelColor": "#548DD4",
+				"methVisible": "true",
+				"methodInhVisible": "true",
+				"relVisible": "false",
 				"panel": {
 					"isOpen": "true",
-					"pathVisible": true,
+					"pathVisible": false,
 					"position": {
-						"X": 25,
-						"Y": 20
+						"X": 30,
+						"Y": 14
 					}
 				}
 			},
 			"TbTesOrd": {
 				"panelColor": "#CCC1D9",
+				"methVisible": "true",
+				"methodInhVisible": "true",
+				"relVisible": "false",
 				"panel": {
 					"isOpen": "true",
+					"pathVisible": true,
 					"position": {
-						"X": 265,
+						"X": 46,
+						"Y": 202
+					}
+				},
+				"isMinimized": "false"
+			},
+			"TbRigOrd": {
+				"panelColor": "#996699",
+				"methVisible": "true",
+				"methodInhVisible": "true",
+				"relVisible": "false",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 328,
+						"Y": 204
+					}
+				}
+			},
+			"DataClass1": {
+				"panelColor": "#B7DDE8",
+				"flatVisible": "false",
+				"methVisible": "true",
+				"panel": {
+					"isOpen": "false",
+					"position": {
+						"X": 255,
 						"Y": 20
-					},
-					"pathVisible": true
+					}
 				}
 			}
 		},
 		"model": {
 			"scriptMode": "manual",
 			"workspaceLeft": 0,
-			"workspaceTop": 1
+			"workspaceTop": 0,
+			"methodShowMode": "true",
+			"methodInhShowMode": "true",
+			"relShowMode": "false",
+			"relationCurve": {
+				"run": true,
+				"mode": 1
+			}
 		}
 	},
 	"dataClasses": [
@@ -38,6 +78,7 @@
 			"className": "TbForn",
 			"collectionName": "TbFornCollection",
 			"scope": "public",
+			"publishAsJSGlobal": true,
 			"attributes": [
 				{
 					"name": "ID",
@@ -59,43 +100,88 @@
 					"kind": "storage",
 					"scope": "public",
 					"type": "string"
+				},
+				{
+					"name": "tbTesOrdCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "TbTesOrdCollection",
+					"reversePath": true,
+					"path": "fornitore"
 				}
-			],
-			"publishAsJSGlobal": true
+			]
 		},
 		{
-			"collectionName": "TbTesOrdCollection",
-			"className": "TbTesOrd",
+			"name": "TbRigOrd",
+			"className": "TbRigOrd",
+			"collectionName": "TbRigOrdCollection",
+			"scope": "public",
 			"attributes": [
 				{
 					"name": "ID",
 					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
 					"type": "long",
-					"autosequence": "true",
-					"unique": "true",
-					"primKey": "true"
+					"primKey": true
 				},
 				{
 					"name": "numordine",
-					"scope": null,
+					"kind": "alias",
+					"scope": "public",
 					"type": "long",
+					"path": "TbTesOrd.numordine"
+				}
+			]
+		},
+		{
+			"name": "TbTesOrd",
+			"className": "TbTesOrd",
+			"collectionName": "TbTesOrdCollection",
+			"scope": "public",
+			"publishAsJSGlobal": true,
+			"attributes": [
+				{
+					"name": "ID",
 					"kind": "storage",
+					"scope": "public",
 					"unique": true,
 					"autosequence": true,
+					"type": "long",
+					"primKey": true
+				},
+				{
+					"name": "numordine",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
 					"not_null": true,
+					"autosequence": true,
+					"type": "long",
 					"identifying": true
 				},
 				{
 					"name": "dataordine",
-					"scope": "public",
-					"type": "date",
 					"kind": "storage",
-					"simpleDate": true,
-					"not_null": true
+					"scope": "public",
+					"not_null": true,
+					"type": "date",
+					"simpleDate": true
+				},
+				{
+					"name": "fornitore",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "TbForn",
+					"path": "TbForn"
 				}
-			],
-			"publishAsJSGlobal": true
+			]
+		},
+		{
+			"collectionName": "DataClass1Collection",
+			"className": "DataClass1",
+			"extends": "TbTesOrd"
 		}
-	],
-	"type": []
+	]
 }
