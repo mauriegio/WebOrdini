@@ -41,8 +41,8 @@
 					"isOpen": "true",
 					"pathVisible": true,
 					"position": {
-						"X": 328,
-						"Y": 204
+						"X": 411,
+						"Y": 203
 					}
 				}
 			},
@@ -61,7 +61,7 @@
 		},
 		"model": {
 			"scriptMode": "manual",
-			"workspaceLeft": 0,
+			"workspaceLeft": 1,
 			"workspaceTop": 0,
 			"methodShowMode": "true",
 			"methodInhShowMode": "true",
@@ -132,6 +132,20 @@
 					"scope": "public",
 					"type": "long",
 					"path": "TbTesOrd.numordine"
+				},
+				{
+					"name": "tbtesord",
+					"scope": "public",
+					"path": "TbTesOrd",
+					"type": "TbTesOrd",
+					"kind": "relatedEntity"
+				},
+				{
+					"name": "dataordne",
+					"scope": "public",
+					"path": "TbTesOrd.dataordine",
+					"type": "date",
+					"kind": "alias"
 				}
 			]
 		},
@@ -175,6 +189,14 @@
 					"scope": "public",
 					"type": "TbForn",
 					"path": "TbForn"
+				},
+				{
+					"name": "tbRigOrdCollection",
+					"scope": "public",
+					"reversePath": true,
+					"path": "tbtesord",
+					"type": "TbRigOrdCollection",
+					"kind": "relatedEntities"
 				}
 			]
 		},
