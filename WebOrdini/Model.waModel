@@ -12,7 +12,7 @@
 					"isOpen": "true",
 					"pathVisible": false,
 					"position": {
-						"X": 30,
+						"X": 26,
 						"Y": 18
 					}
 				}
@@ -27,8 +27,8 @@
 					"isOpen": "true",
 					"pathVisible": true,
 					"position": {
-						"X": 30,
-						"Y": 186
+						"X": 27,
+						"Y": 222
 					}
 				}
 			},
@@ -41,8 +41,8 @@
 					"isOpen": "true",
 					"pathVisible": true,
 					"position": {
-						"X": 380,
-						"Y": 189
+						"X": 411,
+						"Y": 13
 					}
 				}
 			},
@@ -56,6 +56,19 @@
 						"X": 255,
 						"Y": 20
 					}
+				}
+			},
+			"TbRigOrdNeg": {
+				"panelColor": "#B2A2C7",
+				"flatVisible": "false",
+				"methVisible": "true",
+				"panel": {
+					"isOpen": "true",
+					"position": {
+						"X": 412,
+						"Y": 231
+					},
+					"pathVisible": true
 				}
 			}
 		},
@@ -87,6 +100,7 @@
 					"unique": true,
 					"autosequence": true,
 					"type": "long",
+					"indexKind": "btree",
 					"primKey": true
 				},
 				{
@@ -124,14 +138,30 @@
 					"unique": true,
 					"autosequence": true,
 					"type": "long",
+					"indexKind": "btree",
 					"primKey": true
 				},
 				{
 					"name": "tesord",
+					"kind": "relatedEntity",
 					"scope": "public",
-					"path": "TbTesOrd",
 					"type": "TbTesOrd",
-					"kind": "relatedEntity"
+					"path": "TbTesOrd"
+				},
+				{
+					"name": "rigordneg",
+					"kind": "relatedEntity",
+					"type": "TbRigOrdNeg",
+					"path": "TbRigOrdNeg",
+					"scope": "public"
+				},
+				{
+					"name": "tbRigOrdNegCollection",
+					"scope": "public",
+					"reversePath": true,
+					"path": "rigord",
+					"type": "TbRigOrdNegCollection",
+					"kind": "relatedEntities"
 				}
 			]
 		},
@@ -149,6 +179,7 @@
 					"unique": true,
 					"autosequence": true,
 					"type": "long",
+					"indexKind": "btree",
 					"primKey": true
 				},
 				{
@@ -159,6 +190,7 @@
 					"not_null": true,
 					"autosequence": true,
 					"type": "long",
+					"indexKind": "btree",
 					"identifying": true
 				},
 				{
@@ -177,12 +209,13 @@
 					"path": "TbForn"
 				},
 				{
-					"name": "tbRigOrdCollection_1",
+					"name": "tbRigOrdCollection",
+					"kind": "relatedEntities",
 					"scope": "public",
+					"type": "TbRigOrdCollection",
 					"reversePath": true,
 					"path": "tesord",
-					"type": "TbRigOrdCollection",
-					"kind": "relatedEntities"
+					"matchColumn": "tbRigOrdCollection_1"
 				}
 			]
 		},
@@ -191,7 +224,35 @@
 			"className": "DataClass1",
 			"collectionName": "DataClass1Collection",
 			"scope": "public",
-			"extends": "TbTesOrd"
+			"extends": "TbTesOrd",
+			"attributes": [
+				{
+					"name": "tbRigOrdCollection",
+					"scope": "public"
+				}
+			]
+		},
+		{
+			"collectionName": "TbRigOrdNegCollection",
+			"className": "TbRigOrdNeg",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"type": "long",
+					"autosequence": "true",
+					"unique": "true",
+					"primKey": "true"
+				},
+				{
+					"name": "rigord",
+					"scope": "public",
+					"type": "TbRigOrd",
+					"kind": "relatedEntity",
+					"path": "TbRigOrd"
+				}
+			]
 		}
-	]
+	],
+	"type": []
 }
