@@ -13,7 +13,7 @@
 					"pathVisible": false,
 					"position": {
 						"X": 30,
-						"Y": 14
+						"Y": 18
 					}
 				}
 			},
@@ -22,15 +22,15 @@
 				"methVisible": "true",
 				"methodInhVisible": "true",
 				"relVisible": "false",
+				"isMinimized": "false",
 				"panel": {
 					"isOpen": "true",
 					"pathVisible": true,
 					"position": {
-						"X": 46,
-						"Y": 202
+						"X": 30,
+						"Y": 186
 					}
-				},
-				"isMinimized": "false"
+				}
 			},
 			"TbRigOrd": {
 				"panelColor": "#996699",
@@ -135,17 +135,18 @@
 				},
 				{
 					"name": "tbtesord",
+					"kind": "relatedEntity",
 					"scope": "public",
-					"path": "TbTesOrd",
 					"type": "TbTesOrd",
-					"kind": "relatedEntity"
+					"path": "TbTesOrd"
 				},
 				{
 					"name": "dataordne",
+					"kind": "alias",
 					"scope": "public",
-					"path": "TbTesOrd.dataordine",
 					"type": "date",
-					"kind": "alias"
+					"simpleDate": false,
+					"path": "TbTesOrd.dataordine"
 				}
 			]
 		},
@@ -192,17 +193,19 @@
 				},
 				{
 					"name": "tbRigOrdCollection",
+					"kind": "relatedEntities",
 					"scope": "public",
-					"reversePath": true,
-					"path": "tbtesord",
 					"type": "TbRigOrdCollection",
-					"kind": "relatedEntities"
+					"reversePath": true,
+					"path": "tbtesord"
 				}
 			]
 		},
 		{
-			"collectionName": "DataClass1Collection",
+			"name": "DataClass1",
 			"className": "DataClass1",
+			"collectionName": "DataClass1Collection",
+			"scope": "public",
 			"extends": "TbTesOrd"
 		}
 	]
