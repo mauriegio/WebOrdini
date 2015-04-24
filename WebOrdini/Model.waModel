@@ -41,8 +41,8 @@
 					"isOpen": "true",
 					"pathVisible": true,
 					"position": {
-						"X": 411,
-						"Y": 203
+						"X": 380,
+						"Y": 189
 					}
 				}
 			},
@@ -61,7 +61,7 @@
 		},
 		"model": {
 			"scriptMode": "manual",
-			"workspaceLeft": 1,
+			"workspaceLeft": 0,
 			"workspaceTop": 0,
 			"methodShowMode": "true",
 			"methodInhShowMode": "true",
@@ -127,26 +127,11 @@
 					"primKey": true
 				},
 				{
-					"name": "numordine",
-					"kind": "alias",
+					"name": "tesord",
 					"scope": "public",
-					"type": "long",
-					"path": "TbTesOrd.numordine"
-				},
-				{
-					"name": "tbtesord",
-					"kind": "relatedEntity",
-					"scope": "public",
+					"path": "TbTesOrd",
 					"type": "TbTesOrd",
-					"path": "TbTesOrd"
-				},
-				{
-					"name": "dataordne",
-					"kind": "alias",
-					"scope": "public",
-					"type": "date",
-					"simpleDate": false,
-					"path": "TbTesOrd.dataordine"
+					"kind": "relatedEntity"
 				}
 			]
 		},
@@ -192,12 +177,12 @@
 					"path": "TbForn"
 				},
 				{
-					"name": "tbRigOrdCollection",
-					"kind": "relatedEntities",
+					"name": "tbRigOrdCollection_1",
 					"scope": "public",
-					"type": "TbRigOrdCollection",
 					"reversePath": true,
-					"path": "tbtesord"
+					"path": "tesord",
+					"type": "TbRigOrdCollection",
+					"kind": "relatedEntities"
 				}
 			]
 		},
